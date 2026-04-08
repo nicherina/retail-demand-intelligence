@@ -5,6 +5,8 @@
 A production-grade data quality assessment tool demonstrating end-to-end
 analytical workflow — from raw data to actionable business insights.
 
+🔗 **Live demo:** [Open on Streamlit Cloud](https://retail-demand-intelligence-hpd9ea72kk2wcpjadhm8yd.streamlit.app/)
+
 ---
 
 ## What it does
