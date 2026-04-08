@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Nisrina Walyadin · Data Analytics Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"/>
+<style>
+:root {
+  --bg: #f5f2eb;
+  --ink: #111;
+  --muted: #888;
+  --border: #ddd8cc;
+  --surface: #edeae1;
+  --white: #fff;
+  --one: #0052cc;      /* accent blue */
+  --one-light: #e8f0fc;
+  --green: #0a7c45;
+  --red: #c0392b;
+  --amber: #d68910;
+}
+*, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'IBM Plex Sans', sans-serif; }
+
+/* NAV */
+nav {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 0 2.5rem; height: 52px;
+  background: rgba(245,242,235,0.95); backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo { font-family:'Fraunces',serif; font-size:1rem; color:var(--ink); }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.72rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--one); }
+.nav-badge { background:var(--one); color:#fff; font-family:'IBM Plex Mono',monospace; font-size:0.6rem; padding:0.3rem 0.75rem; border-radius:3px; letter-spacing:0.08em; }
+
+/* HERO */
+.hero { padding: 8rem 2.5rem 5rem; max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+.hero-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--one); letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
+.hero-eyebrow::before { content:''; width:24px; height:1px; background:var(--one); }
+.hero h1 { font-family:'Fraunces',serif; font-size:clamp(2.4rem,4.5vw,3.8rem); line-height:1.06; font-weight:900; margin-bottom:1.5rem; }
+.hero h1 em { font-style:italic; color:var(--one); }
+.hero-desc { font-size:0.9rem; color:var(--muted); line-height:1.85; margin-bottom:2rem; max-width:420px; }
+.hero-cta { display:inline-flex; align-items:center; gap:0.5rem; background:var(--ink); color:#fff; font-size:0.72rem; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; padding:0.8rem 1.6rem; border-radius:4px; transition:background 0.2s; }
+.hero-cta:hover { background:var(--one); }
+
+/* Right panel */
+.hero-right { background:var(--ink); border-radius:16px; padding:2.5rem; }
+.data-badge { display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,82,204,0.15); border:1px solid rgba(0,82,204,0.3); color:#6da0f5; font-family:'IBM Plex Mono',monospace; font-size:0.58rem; letter-spacing:0.12em; text-transform:uppercase; padding:0.3rem 0.6rem; border-radius:3px; margin-bottom:1.25rem; }
+.data-badge::before { content:'●'; animation:blink 1.5s infinite; font-size:0.5rem; }
+@keyframes blink { 0%,100%{opacity:1}50%{opacity:0.2} }
+.hero-right h2 { font-family:'Fraunces',serif; font-size:1.3rem; color:#fff; margin-bottom:0.75rem; line-height:1.3; }
+.hero-right p { font-size:0.78rem; color:rgba(255,255,255,0.4); line-height:1.75; }
+.source-row { margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,0.08); }
+.source-item { display:flex; justify-content:space-between; align-items:center; padding:0.5rem 0; border-bottom:1px solid rgba(255,255,255,0.05); }
+.source-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:rgba(255,255,255,0.35); }
+.source-pill { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; padding:0.15rem 0.5rem; border-radius:3px; }
+.real { background:rgba(10,124,69,0.2); color:#3dd68c; }
+.sim  { background:rgba(0,82,204,0.2); color:#6da0f5; }
+
+/* TICKER */
+.ticker-wrap { background:var(--ink); padding:0.55rem 0; overflow:hidden; }
+.ticker-inner { display:flex; white-space:nowrap; animation:tick 30s linear infinite; }
+.ticker-item { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:#444; padding:0 2rem; }
+.ticker-item .up { color:#3dd68c; margin-right:0.3rem; }
+@keyframes tick { 0%{transform:translateX(0)}100%{transform:translateX(-50%)} }
+
+/* SECTIONS */
+.section { max-width:1200px; margin:0 auto; padding:5.5rem 2.5rem; }
+.section-header { display:flex; align-items:flex-start; gap:3rem; margin-bottom:3rem; }
+.section-num { font-family:'Fraunces',serif; font-size:3.5rem; font-weight:900; color:var(--border); line-height:1; flex-shrink:0; }
+.s-label { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:var(--one); letter-spacing:0.18em; text-transform:uppercase; margin-bottom:0.4rem; }
+.s-title { font-family:'Fraunces',serif; font-size:clamp(1.6rem,3vw,2.4rem); font-weight:900; line-height:1.1; }
+.s-desc { font-size:0.85rem; color:var(--muted); margin-top:0.6rem; line-height:1.8; max-width:460px; }
+
+/* NOTEBOOK CARDS */
+.nb-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+.nb-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.75rem; transition:box-shadow 0.3s, transform 0.3s; }
+.nb-card:hover { box-shadow:0 12px 40px rgba(0,0,0,0.07); transform:translateY(-3px); }
+.nb-num { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; color:var(--one); letter-spacing:0.14em; margin-bottom:0.75rem; }
+.nb-card h3 { font-family:'Fraunces',serif; font-size:1.15rem; font-weight:700; margin-bottom:0.5rem; line-height:1.2; }
+.nb-card p { font-size:0.78rem; color:var(--muted); line-height:1.75; margin-bottom:1rem; }
+.nb-tags { display:flex; flex-wrap:wrap; gap:0.35rem; }
+.tag { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:var(--muted); border:1px solid var(--border); border-radius:3px; padding:0.2rem 0.55rem; }
+.nb-card.featured { grid-column: span 2; display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; background: linear-gradient(135deg, var(--one-light) 0%, var(--white) 100%); border-color: rgba(0,82,204,0.2); }
+
+/* DATA PIPELINE VISUAL */
+.pipeline { display:flex; align-items:center; gap:0; margin-bottom:3rem; flex-wrap:wrap; }
+.pipe-step { background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem; flex:1; min-width:160px; }
+.pipe-step h4 { font-size:0.78rem; font-weight:600; margin-bottom:0.25rem; }
+.pipe-step p { font-size:0.68rem; color:var(--muted); }
+.pipe-arrow { color:var(--border); font-size:1.2rem; padding:0 0.5rem; flex-shrink:0; }
+
+/* KPI STRIP */
+.kpi-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border-radius:12px; overflow:hidden; margin-bottom:2rem; }
+.kpi-box { background:var(--white); padding:1.25rem; }
+.kpi-l { font-family:'IBM Plex Mono',monospace; font-size:0.58rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
+.kpi-v { font-family:'Fraunces',serif; font-size:1.8rem; font-weight:900; color:var(--ink); }
+.kpi-d { font-size:0.68rem; margin-top:0.25rem; }
+.green { color:var(--green); } .red { color:var(--red); } .amber { color:var(--amber); }
+
+/* SKILLS */
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.25rem; }
+.skill-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.5rem; }
+.skill-label { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; margin-bottom:1.25rem; }
+.skill-row { margin-bottom:0.9rem; }
+.skill-top { display:flex; justify-content:space-between; font-size:0.76rem; margin-bottom:0.3rem; font-weight:500; }
+.skill-pct { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--muted); }
+.s-track { height:3px; background:var(--border); border-radius:2px; overflow:hidden; }
+.s-fill { height:100%; border-radius:2px; transform:scaleX(0); transform-origin:left; transition:transform 1.2s cubic-bezier(0.16,1,0.3,1); }
+
+/* FOOTER */
+footer { background:var(--ink); padding:3rem 2.5rem; text-align:center; }
+.footer-name { font-family:'Fraunces',serif; font-size:1.3rem; color:#fff; margin-bottom:0.3rem; }
+.footer-links { display:flex; justify-content:center; gap:2rem; margin:1rem 0; }
+.footer-links a { font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:rgba(255,255,255,0.35); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:#fff; }
+.footer-note { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; color:rgba(255,255,255,0.2); margin-top:1.25rem; }
+
+hr.div { border:none; border-top:1px solid var(--border); margin:0; }
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(20px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:900px) {
+  .hero { grid-template-columns:1fr; gap:2rem; }
+  .nb-grid { grid-template-columns:1fr; }
+  .nb-card.featured { grid-column:span 1; grid-template-columns:1fr; }
+  .kpi-strip { grid-template-columns:repeat(2,1fr); }
+  .skills-grid { grid-template-columns:1fr; }
+  .pipeline { flex-direction:column; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Nisrina Walyadin</div>
+  <ul class="nav-links">
+    <li><a href="#notebooks">Notebooks</a></li>
+    <li><a href="#app">App</a></li>
+    <li><a href="#pipeline">Pipeline</a></li>
+    <li><a href="#skills">Skills</a></li>
+  </ul>
+  <div class="nav-badge">Data Analytics Portfolio</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Junior Data & Analytics Consultant</div>
+    <h1>From fragmented<br/>data to <em>trusted</em><br/>data products.</h1>
+    <p class="hero-desc">I build quality-assured data pipelines, demand forecasting models, and BI dashboards that turn messy enterprise data into decisions.</p>
+    <a class="hero-cta" href="mailto:nisrinawalyadin@gmail.com">↗ &nbsp;nisrinawalyadin@gmail.com</a>
+  </div>
+  <div class="hero-right">
+    <div class="data-badge">Portfolio overview</div>
+    <h2>Real data quality work. Real analytical thinking.</h2>
+    <p>A retail demand intelligence case study — 1,500+ stores, 7 markets, end-to-end data product delivery: trusted data, quality gates, data contracts.</p>
+    <div class="source-row">
+      <div class="source-item">
+        <span class="source-label">Sales & store data</span>
+        <span class="source-pill sim">Simulated</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">Methodology & pipeline</span>
+        <span class="source-pill real">Real (NKD Group)</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">Data quality framework</span>
+        <span class="source-pill real">Production-grade</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">EV portfolio (geospatial)</span>
+        <span class="source-pill real">Real public data</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">Interactive app (Streamlit)</span>
+        <span class="source-pill real">Deployable</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<!-- <div class="ticker-wrap">
+  <div class="ticker-inner">
+    <span class="ticker-item"><span class="up">▼</span>MAPE 10.7% (vs 18.4% baseline)</span>
+    <span class="ticker-item"><span class="up">▼</span>Stock-out rate 4.1% → beat 3% target</span>
+    <span class="ticker-item">● Data quality score 93/100 after remediation</span>
+    <span class="ticker-item"><span class="up">▲</span>€2.1M estimated annual saving</span>
+    <span class="ticker-item">● 4 store archetypes · 7 markets · 1,500+ stores</span>
+    <span class="ticker-item">● Pipeline gate: PASS → downstream consumers unblocked</span>
+    <span class="ticker-item">● Random Forest best model (3 compared)</span>
+    <span class="ticker-item">● Data contract v1.0 — schema + SLA defined</span>
+    <span class="ticker-item"><span class="up">▼</span>MAPE 10.7% (vs 18.4% baseline)</span>
+    <span class="ticker-item"><span class="up">▼</span>Stock-out rate 4.1% → beat 3% target</span>
+    <span class="ticker-item">● Data quality score 93/100 after remediation</span>
+    <span class="ticker-item"><span class="up">▲</span>€2.1M estimated annual saving</span>
+    <span class="ticker-item">● 4 store archetypes · 7 markets · 1,500+ stores</span>
+    <span class="ticker-item">● Pipeline gate: PASS → downstream consumers unblocked</span>
+  </div>
+</div>-->
+
+<hr class="div"/> 
+
+<!-- NOTEBOOKS -->
+
+<div class="section" id="notebooks">
+  <div class="section-header reveal">
+    <div class="section-num">01</div>
+    <div>
+      <div class="s-label">Jupyter Notebooks · Python</div>
+      <h2 class="s-title">4 Notebooks.<br/>One Complete Case Study.</h2>
+      <p class="s-desc">End-to-end data product delivery — from raw, messy data through quality assessment, forecasting, geospatial analysis, and client-facing BI specification.</p>
+    </div>
+  </div>
+
+  <div class="nb-grid reveal">
+    <div class="nb-card featured">
+      <div>
+        <div class="nb-num">NOTEBOOK 01 · CORE COMPETENCY</div>
+        <h3>Data Quality Assessment & Remediation</h3>
+        <p>Automated profiling pipeline that checks completeness, validity, uniqueness, and freshness across 50K+ retail records. Generates a quality score, triggers a pipeline gate, and runs a remediation workflow with full audit trail. Raised quality score from 72 → 93 before downstream processing.</p>
+        <p style="margin-top:0.5rem">The profiler class, pipeline gate logic, and remediation audit log are production-ready patterns applicable across any data product context.</p>
+        <div class="nb-tags">
+          <span class="tag">Data Quality</span><span class="tag">Pipeline Gate</span>
+          <span class="tag">Data Contract</span><span class="tag">Audit Trail</span>
+          <span class="tag">Python</span><span class="tag">Pandas</span>
+        </div>
+      </div>
+      <div style="background:var(--ink); border-radius:10px; padding:1.25rem;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#555; margin-bottom:0.75rem;">quality_gate.py</div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; line-height:1.8; color:#aaa;">
+          <span style="color:#6da0f5">def</span> <span style="color:#fff">gate</span>(self, min_score=<span style="color:#3dd68c">85</span>):<br/>
+          &nbsp;&nbsp;score = self.overall_score()<br/>
+          &nbsp;&nbsp;status = <span style="color:#3dd68c">'✅ PASS'</span> <span style="color:#6da0f5">if</span> score >= min_score<br/>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6da0f5">else</span> <span style="color:#f08080">'🚫 BLOCK'</span><br/>
+          &nbsp;&nbsp;<span style="color:#6da0f5">return</span> score, status
+        </div>
+      </div>
+    </div>
+
+    <div class="nb-card">
+      <div class="nb-num">NOTEBOOK 02</div>
+      <h3>Demand Forecasting Data Product</h3>
+      <p>End-to-end forecasting pipeline: feature engineering (lag, seasonal, weather, promo), 3-model comparison (Random Forest, GBM, Ridge) on time-series split, versioned output file matching the data contract schema. MAPE reduced from 18.4% → 10.7%.</p>
+      <div class="nb-tags">
+        <span class="tag">Random Forest</span><span class="tag">Feature Engineering</span>
+        <span class="tag">Time-Series CV</span><span class="tag">Scikit-learn</span>
+      </div>
+    </div>
+
+    <div class="nb-card">
+      <div class="nb-num">NOTEBOOK 03</div>
+      <h3>Geospatial Demand Signals</h3>
+      <p>K-Means clustering of 1,500+ store locations across 7 European markets. Elbow method + silhouette score for optimal k. Identified 4 store archetypes (Urban Hub, Suburban, Rural, Outlet) — reducing forecast MAPE by ~5pp when used as model stratifier.</p>
+      <div class="nb-tags">
+        <span class="tag">K-Means</span><span class="tag">Silhouette Score</span>
+        <span class="tag">Geospatial</span><span class="tag">Matplotlib</span>
+      </div>
+    </div>
+
+    <div class="nb-card">
+      <div class="nb-num">NOTEBOOK 04 · CONSULTING OUTPUT</div>
+      <h3>BI Dashboard Spec & KPI Framework</h3>
+      <p>The consultant deliverable: KPI framework per stakeholder (CFO, Inventory, Data Steward), management dashboard mockup, Power BI report specification. Demonstrates ability to communicate at project and management level.</p>
+      <div class="nb-tags">
+        <span class="tag">Power BI Spec</span><span class="tag">KPI Framework</span>
+        <span class="tag">Stakeholder Comms</span><span class="tag">Client Delivery</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- STREAMLIT APP -->
+<div class="section" id="app">
+  <div class="section-header reveal">
+    <div class="section-num">02</div>
+    <div>
+      <div class="s-label">Streamlit · Deployable App</div>
+      <h2 class="s-title">From Notebook<br/>to Live Tool.</h2>
+      <p class="s-desc">The data quality pipeline packaged as an interactive web app — upload data, inspect quality issues, run remediation, download clean output.</p>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem;" class="reveal">
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:12px; padding:1.75rem;">
+      <div class="nb-num">FEATURES</div>
+      <ul style="font-size:0.82rem; color:var(--muted); line-height:2.2; padding-left:1rem;">
+        <li>Upload any CSV or use built-in demo data</li>
+        <li>Automated column profiling (completeness, validity, uniqueness)</li>
+        <li>Pipeline gate — PASS / BLOCK with score threshold</li>
+        <li>One-click remediation pipeline with audit log</li>
+        <li>Download clean dataset</li>
+      </ul>
+      <div class="nb-tags" style="margin-top:1rem;">
+        <span class="tag">Streamlit</span>
+        <span class="tag">Pandas</span>
+        <span class="tag">Session State</span>
+        <span class="tag">Pipeline Gate</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+
+    <div style="background:var(--ink); border-radius:12px; padding:1.75rem;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#555; margin-bottom:0.75rem;">streamlit_app/app.py</div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; line-height:1.9; color:#aaa;">
+        <span style="color:#6da0f5">if</span> st.button(<span style="color:#3dd68c">'Run Quality Gate'</span>):<br/>
+        &nbsp;&nbsp;score = profiler.overall_score()<br/>
+        &nbsp;&nbsp;<span style="color:#6da0f5">if</span> score >= <span style="color:#3dd68c">85</span>:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;st.success(<span style="color:#3dd68c">'✅ PASS'</span>)<br/>
+        &nbsp;&nbsp;<span style="color:#6da0f5">else</span>:<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;st.error(<span style="color:#f08080">'🚫 BLOCKED'</span>)
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- PIPELINE -->
+<div style="background:var(--surface); padding:5.5rem 0;">
+  <div class="section" id="pipeline" style="padding-top:0; padding-bottom:0;">
+    <div class="section-header reveal">
+      <div class="section-num">03</div>
+      <div>
+        <div class="s-label">Data Product Architecture</div>
+        <h2 class="s-title">The Full Pipeline</h2>
+        <p class="s-desc">From raw, fragmented source data to quality-assured data product consumed by business stakeholders — every step documented and reproducible.</p>
+      </div>
+    </div>
+
+    <div class="pipeline reveal">
+      <div class="pipe-step" style="border-top:3px solid var(--red)">
+        <h4>Raw Data</h4>
+        <p>ERP exports, API feeds, manual uploads — messy, fragmented, inconsistent</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step" style="border-top:3px solid var(--amber)">
+        <h4>Quality Gate</h4>
+        <p>Score: 72/100 → BLOCKED. Completeness, validity, uniqueness checks</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step" style="border-top:3px solid var(--amber)">
+        <h4>Remediation</h4>
+        <p>Dedup, quarantine, impute, flag. Full audit log. Score: 93/100 → PASS</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step" style="border-top:3px solid var(--one)">
+        <h4>Feature Engineering</h4>
+        <p>Geospatial clusters + lag + seasonal + weather + promo signals</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step" style="border-top:3px solid var(--one)">
+        <h4>Forecast Model</h4>
+        <p>Random Forest v1.2. MAPE 10.7%. Versioned output CSV</p>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step" style="border-top:3px solid var(--green)">
+        <h4>Data Product</h4>
+        <p>forecast_results.csv. Schema matches contract. Power BI dashboard</p>
+      </div>
+    </div>
+
+    <div class="kpi-strip reveal">
+      <div class="kpi-box">
+        <div class="kpi-l">Forecast MAPE</div>
+        <div class="kpi-v">10.7%</div>
+        <div class="kpi-d green">▼ vs 18.4% baseline</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-l">Data Quality Score</div>
+        <div class="kpi-v">93/100</div>
+        <div class="kpi-d green">▲ from 72 pre-remediation</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-l">Stock-out Rate</div>
+        <div class="kpi-v">4.1%</div>
+        <div class="kpi-d green">▼ from 14.2% baseline</div>
+      </div>
+      <div class="kpi-box">
+        <div class="kpi-l">Est. Annual Saving</div>
+        <div class="kpi-v">€2.1M</div>
+        <div class="kpi-d green">Overstock reduction</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<!-- SKILLS -->
+<div class="section" id="skills">
+  <div class="section-header reveal">
+    <div class="section-num">04</div>
+    <div>
+      <div class="s-label">Technical Stack</div>
+      <h2 class="s-title">Skills &<br/>Tooling</h2>
+      <p class="s-desc">From data engineering and ML to stakeholder communication — the full consultant toolkit.</p>
+    </div>
+  </div>
+  <div class="skills-grid reveal">
+    <div class="skill-card">
+      <div class="skill-label" style="color:var(--one)">Core Analytics</div>
+      <div class="skill-row"><div class="skill-top"><span>Python (Pandas, Scikit-learn)</span><span class="skill-pct">90%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.90"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>SQL</span><span class="skill-pct">85%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.85"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Excel / VBA</span><span class="skill-pct">88%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.88"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Machine Learning (RF, GBM, clustering)</span><span class="skill-pct">82%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.82"></div></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label" style="color:var(--green)">BI & Visualisation</div>
+      <div class="skill-row"><div class="skill-top"><span>Power BI</span><span class="skill-pct">85%</span></div><div class="s-track"><div class="s-fill" style="background:var(--green)" data-w="0.85"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Streamlit</span><span class="skill-pct">80%</span></div><div class="s-track"><div class="s-fill" style="background:var(--green)" data-w="0.80"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Matplotlib / Seaborn</span><span class="skill-pct">85%</span></div><div class="s-track"><div class="s-fill" style="background:var(--green)" data-w="0.85"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Geospatial (ArcGIS, Folium)</span><span class="skill-pct">78%</span></div><div class="s-track"><div class="s-fill" style="background:var(--green)" data-w="0.78"></div></div></div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-label" style="color:var(--amber)">Consulting & Communication</div>
+      <div class="skill-row"><div class="skill-top"><span>Data Product Design</span><span class="skill-pct">75%</span></div><div class="s-track"><div class="s-fill" style="background:var(--amber)" data-w="0.75"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Data Quality Frameworks</span><span class="skill-pct">78%</span></div><div class="s-track"><div class="s-fill" style="background:var(--amber)" data-w="0.78"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>Stakeholder Communication</span><span class="skill-pct">82%</span></div><div class="s-track"><div class="s-fill" style="background:var(--amber)" data-w="0.82"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>German (B1→B2, aktiv lernend)</span><span class="skill-pct">60%</span></div><div class="s-track"><div class="s-fill" style="background:var(--amber)" data-w="0.60"></div></div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-name">Nisrina Afnan Walyadin</div>
+  <p style="font-size:0.78rem; color:rgba(255,255,255,0.35); margin-bottom:0.2rem;">MSc Mathematics, TU Munich · Data & BI Analyst</p>
+  <div class="footer-links">
+    <a href="mailto:nisrinawalyadin@gmail.com">nisrinawalyadin@gmail.com</a>
+    <a href="https://www.linkedin.com/in/nisrina-walyadin-5b7345178/" target="_blank">LinkedIn ↗</a>
+    <a href="https://nicherina.github.io/nisrinawalyadin.github.io/" target="_blank">EV Portfolio ↗</a>
+  </div>
+  <div class="footer-note">
+    Junior Data & Analytics Consultant · Munich, Germany · +49 17677127474<br/>
+    Simulation methodology based on real NKD Group retail analytics work (2024–2025).
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    e.target.querySelectorAll('.s-fill').forEach(b => {
+      b.style.transform = `scaleX(${b.dataset.w})`;
+    });
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
