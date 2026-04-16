@@ -1,0 +1,29 @@
+asset,column,rule,status,severity,detail,gate_status,gate_score,run_ts
+claims,claim_id,null_rate,PASS,critical,null_rate=0.00% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804600
+claims,policy_id,null_rate,PASS,critical,null_rate=0.00% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804611
+claims,lob,null_rate,PASS,critical,null_rate=0.00% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804614
+claims,lob,allowed_values,FAIL,critical,30 invalid: ['UNKNOWN'],🚫 BLOCK,0.8182,2026-04-09T13:17:34.804616
+claims,country,null_rate,PASS,critical,null_rate=1.20% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804618
+claims,incurred_loss,null_rate,PASS,critical,null_rate=2.40% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804620
+claims,incurred_loss,min_value,PASS,critical,0 values < 0.0,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804622
+claims,paid_loss,null_rate,PASS,warning,null_rate=0.00% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804623
+claims,paid_loss,min_value,FAIL,critical,80 values < 0.0,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804625
+claims,status,null_rate,PASS,critical,null_rate=0.00% threshold=3.00%,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804627
+claims,status,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.8182,2026-04-09T13:17:34.804629
+policies,policy_id,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804631
+policies,cedant_name,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804633
+policies,treaty_type,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804635
+policies,treaty_type,allowed_values,PASS,critical,All valid,✅ PASS,1.0,2026-04-09T13:17:34.804636
+policies,premium_usd,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804638
+policies,premium_usd,min_value,PASS,critical,0 values < 0.0,✅ PASS,1.0,2026-04-09T13:17:34.804640
+policies,retention_pct,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804642
+policies,retention_pct,min_value,PASS,critical,0 values < 0.0,✅ PASS,1.0,2026-04-09T13:17:34.804644
+policies,max_liability_usd,null_rate,PASS,critical,null_rate=0.00% threshold=1.00%,✅ PASS,1.0,2026-04-09T13:17:34.804646
+policies,max_liability_usd,min_value,PASS,critical,0 values < 0.0,✅ PASS,1.0,2026-04-09T13:17:34.804647
+exposure,exposure_id,null_rate,PASS,critical,null_rate=0.00% threshold=5.00%,✅ PASS,1.0,2026-04-09T13:17:34.804649
+exposure,region,null_rate,PASS,critical,null_rate=0.00% threshold=5.00%,✅ PASS,1.0,2026-04-09T13:17:34.804651
+exposure,region,allowed_values,PASS,critical,All valid,✅ PASS,1.0,2026-04-09T13:17:34.804653
+exposure,exposure_value,null_rate,PASS,critical,null_rate=0.00% threshold=5.00%,✅ PASS,1.0,2026-04-09T13:17:34.804655
+exposure,exposure_value,min_value,PASS,critical,0 values < 0.0,✅ PASS,1.0,2026-04-09T13:17:34.804657
+exposure,currency,null_rate,PASS,critical,null_rate=0.00% threshold=5.00%,✅ PASS,1.0,2026-04-09T13:17:34.804658
+exposure,currency,allowed_values,PASS,critical,All valid,✅ PASS,1.0,2026-04-09T13:17:34.804660

@@ -1,0 +1,37 @@
+asset,column,rule,status,severity,detail,gate_status,gate_score,run_ts
+othliab,GRCODE,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,GRCODE,min_value,PASS,critical,0 values below min=1,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,GRNAME,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,AccidentYear,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,AccidentYear,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,DevelopmentLag,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,DevelopmentLag,min_value,PASS,critical,0 values below min=1,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,DevelopmentLag,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,IncurredLosses,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,IncurredLosses,min_value,FAIL,critical,219 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,CumPaidLoss,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,CumPaidLoss,min_value,FAIL,critical,313 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,BulkLoss,null_rate,PASS,warning,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,BulkLoss,min_value,FAIL,critical,296 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,EarnedPremNet,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,EarnedPremNet,min_value,FAIL,critical,220 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,Single,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+othliab,Single,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,GRCODE,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,GRCODE,min_value,PASS,critical,0 values below min=1,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,GRNAME,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,AccidentYear,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,AccidentYear,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,DevelopmentLag,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,DevelopmentLag,min_value,PASS,critical,0 values below min=1,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,DevelopmentLag,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,IncurredLosses,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,IncurredLosses,min_value,FAIL,critical,99 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,CumPaidLoss,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,CumPaidLoss,min_value,FAIL,critical,125 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,BulkLoss,null_rate,PASS,warning,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,BulkLoss,min_value,FAIL,critical,242 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,EarnedPremNet,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,EarnedPremNet,min_value,FAIL,critical,120 values below min=0.0,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,Single,null_rate,PASS,critical,null_rate=0.00%  sla_threshold=2.00%,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
+comauto,Single,allowed_values,PASS,critical,All valid,🚫 BLOCK,0.7778,2026-04-16T16:34:31.799963
