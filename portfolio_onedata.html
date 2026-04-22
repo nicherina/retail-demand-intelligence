@@ -159,25 +159,33 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
     <a class="hero-cta" href="mailto:nisrinawalyadin@gmail.com">↗ &nbsp;nisrinawalyadin@gmail.com</a>
   </div>
   <div class="hero-right">
-    <div class="data-badge">Portfolio overview</div>
-    <h2>Real data quality work. Real analytical thinking.</h2>
-    <p>A retail demand intelligence case study — 1,500+ stores, 7 markets, end-to-end data product delivery: trusted data, quality gates, data contracts.</p>
+    <div class="data-badge">Portfolio overview · 6 notebooks</div>
+    <h2>End-to-end data product delivery.</h2>
+    <p>From raw, messy data to trusted insights — quality gates, forecasting, geospatial analysis, governance, and GenAI.</p>
     <div class="source-row">
       <div class="source-item">
-        <span class="source-label">Sales & store data</span>
-        <span class="source-pill sim">Simulated</span>
+        <span class="source-label">NB01 · Data Quality Assessment</span>
+        <span class="source-pill real">Pipeline Gate</span>
       </div>
       <div class="source-item">
-        <span class="source-label">Methodology & pipeline</span>
-        <span class="source-pill real">Real (NKD Group)</span>
+        <span class="source-label">NB02 · Demand Forecasting</span>
+        <span class="source-pill real">MAPE −42%</span>
       </div>
       <div class="source-item">
-        <span class="source-label">Data quality framework</span>
-        <span class="source-pill real">Production-grade</span>
+        <span class="source-label">NB03 · Geospatial Demand Signals</span>
+        <span class="source-pill sim">K-Means · 7 markets</span>
       </div>
       <div class="source-item">
-        <span class="source-label">EV portfolio (geospatial)</span>
-        <span class="source-pill real">Real public data</span>
+        <span class="source-label">NB04 · BI Dashboard & KPI Framework</span>
+        <span class="source-pill sim">Power BI Spec</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">NB05 · Data Cataloging & Contracts</span>
+        <span class="source-pill real">18 validation rules</span>
+      </div>
+      <div class="source-item">
+        <span class="source-label">NB06 · RAG Pipeline</span>
+        <span class="source-pill real">FAISS · LangChain</span>
       </div>
       <div class="source-item">
         <span class="source-label"><a href="https://retail-demand-intelligence-hpd9ea72kk2wcpjadhm8yd.streamlit.app/" target="_blank" style="color:#6da0f5; text-decoration:none;">Interactive app (Streamlit) ↗</a></span>
@@ -216,15 +224,15 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
     <div class="section-num">01</div>
     <div>
       <div class="s-label">Jupyter Notebooks · Python</div>
-      <h2 class="s-title">5 Notebooks.<br/>One Complete Case Study.</h2>
-      <p class="s-desc">End-to-end data product delivery — from raw, messy data through quality assessment, forecasting, geospatial analysis, BI specification, and data cataloging & contract validation.</p>
+      <h2 class="s-title">6 Notebooks.<br/>One Complete Case Study.</h2>
+      <p class="s-desc">End-to-end data product delivery — from raw, messy data through quality assessment, forecasting, geospatial analysis, BI specification, data cataloging & contract validation, and a production RAG pipeline.</p>
     </div>
   </div>
 
   <div class="nb-grid reveal">
-    <div class="nb-card featured">
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
       <div>
-        <div class="nb-num">NOTEBOOK 01 · CORE COMPETENCY</div>
+        <div class="nb-num">NOTEBOOK 01 </div>
         <h3>Data Quality Assessment & Remediation</h3>
         <p>Automated profiling pipeline that checks completeness, validity, uniqueness, and freshness across 50K+ retail records. Generates a quality score, triggers a pipeline gate, and runs a remediation workflow with full audit trail. Raised quality score from 72 → 93 before downstream processing.</p>
         <p style="margin-top:0.5rem">The profiler class, pipeline gate logic, and remediation audit log are production-ready patterns applicable across any data product context.</p>
@@ -234,19 +242,9 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
           <span class="tag">Python</span><span class="tag">Pandas</span>
         </div>
       </div>
-      <div style="background:var(--ink); border-radius:10px; padding:1.25rem;">
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#555; margin-bottom:0.75rem;">quality_gate.py</div>
-        <div style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; line-height:1.8; color:#aaa;">
-          <span style="color:#6da0f5">def</span> <span style="color:#fff">gate</span>(self, min_score=<span style="color:#3dd68c">85</span>):<br/>
-          &nbsp;&nbsp;score = self.overall_score()<br/>
-          &nbsp;&nbsp;status = <span style="color:#3dd68c">'✅ PASS'</span> <span style="color:#6da0f5">if</span> score >= min_score<br/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#6da0f5">else</span> <span style="color:#f08080">'🚫 BLOCK'</span><br/>
-          &nbsp;&nbsp;<span style="color:#6da0f5">return</span> score, status
-        </div>
-      </div>
     </div>
 
-    <div class="nb-card">
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
       <div class="nb-num">NOTEBOOK 02</div>
       <h3>Demand Forecasting Data Product</h3>
       <p>End-to-end forecasting pipeline: feature engineering (lag, seasonal, weather, promo), 3-model comparison (Random Forest, GBM, Ridge) on time-series split, versioned output file matching the data contract schema. MAPE reduced from 18.4% → 10.7%.</p>
@@ -256,7 +254,7 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
       </div>
     </div>
 
-    <div class="nb-card">
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
       <div class="nb-num">NOTEBOOK 03</div>
       <h3>Geospatial Demand Signals</h3>
       <p>K-Means clustering of 1,500+ store locations across 7 European markets. Elbow method + silhouette score for optimal k. Identified 4 store archetypes (Urban Hub, Suburban, Rural, Outlet) — reducing forecast MAPE by ~5pp when used as model stratifier.</p>
@@ -266,7 +264,7 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
       </div>
     </div>
 
-    <div class="nb-card">
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
       <div class="nb-num">NOTEBOOK 04 · CONSULTING OUTPUT</div>
       <h3>BI Dashboard Spec & KPI Framework</h3>
       <p>The consultant deliverable: KPI framework per stakeholder (CFO, Inventory, Data Steward), management dashboard mockup, Power BI report specification. Demonstrates ability to communicate at project and management level.</p>
@@ -285,6 +283,18 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
         <span class="tag">Contract Validation</span><span class="tag">Pipeline Gate</span>
         <span class="tag">Loss Triangles</span><span class="tag">Chain-Ladder</span>
         <span class="tag">Data Lineage</span><span class="tag">Palantir Foundry patterns</span>
+      </div>
+    </div>
+
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
+      <div class="nb-num">NOTEBOOK 06 · GEN AI / RAG</div>
+      <h3>Retrieval-Augmented Generation (RAG) Pipeline</h3>
+      <p>Production-ready RAG pipeline applied to financial risk documents — querying credit risk policies, data contracts, and CAS/NAIC insurance reports via natural language. Ingests 5 domain documents, embeds them with sentence-transformers (all-MiniLM-L6-v2), indexes in FAISS, and retrieves context for grounded LLM answers. Includes hallucination detection (number grounding + hedge-word flags), Precision@K retrieval evaluation across 8 financial queries, and a latency benchmark achieving sub-100ms retrieval on CPU.</p>
+      <div class="nb-tags">
+        <span class="tag">RAG</span><span class="tag">FAISS</span>
+        <span class="tag">LangChain</span><span class="tag">sentence-transformers</span>
+        <span class="tag">Hallucination Detection</span><span class="tag">Vector Search</span>
+        <span class="tag">LLM Integration</span><span class="tag">Financial NLP</span>
       </div>
     </div>
   </div>
@@ -322,17 +332,7 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
       </div>
     </div>
 
-    <div style="background:var(--ink); border-radius:12px; padding:1.75rem;">
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:0.62rem; color:#555; margin-bottom:0.75rem;">streamlit_app/app.py</div>
-      <div style="font-family:'IBM Plex Mono',monospace; font-size:0.68rem; line-height:1.9; color:#aaa;">
-        <span style="color:#6da0f5">if</span> st.button(<span style="color:#3dd68c">'Run Quality Gate'</span>):<br/>
-        &nbsp;&nbsp;score = profiler.overall_score()<br/>
-        &nbsp;&nbsp;<span style="color:#6da0f5">if</span> score >= <span style="color:#3dd68c">85</span>:<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;st.success(<span style="color:#3dd68c">'✅ PASS'</span>)<br/>
-        &nbsp;&nbsp;<span style="color:#6da0f5">else</span>:<br/>
-        &nbsp;&nbsp;&nbsp;&nbsp;st.error(<span style="color:#f08080">'🚫 BLOCKED'</span>)
-      </div>
-    </div>
+    
   </div>
 </div>
 
