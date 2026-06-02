@@ -1,0 +1,200 @@
+{
+  "claims": {
+    "asset_name": "claims",
+    "version": "v1.2",
+    "owner": "Claims Operations",
+    "source_system": "Guidewire ClaimCenter",
+    "refresh_frequency": "Daily @ 06:00 UTC",
+    "tags": [
+      "regulated",
+      "PII",
+      "core-financials"
+    ],
+    "row_count": 5000,
+    "col_count": 11,
+    "columns_actual": [
+      "claim_id",
+      "policy_id",
+      "lob",
+      "country",
+      "loss_date",
+      "reported_date",
+      "incurred_loss",
+      "paid_loss",
+      "status",
+      "currency",
+      "adjuster_id"
+    ],
+    "columns_expected": [
+      "claim_id",
+      "policy_id",
+      "lob",
+      "country",
+      "incurred_loss",
+      "paid_loss",
+      "status"
+    ],
+    "dtypes": {
+      "claim_id": "str",
+      "policy_id": "str",
+      "lob": "str",
+      "country": "str",
+      "loss_date": "datetime64[us]",
+      "reported_date": "datetime64[us]",
+      "incurred_loss": "float64",
+      "paid_loss": "float64",
+      "status": "str",
+      "currency": "str",
+      "adjuster_id": "str"
+    },
+    "memory_mb": 2.08,
+    "registered_at": "2026-04-09T13:17:34.776940",
+    "null_rates": {
+      "claim_id": 0.0,
+      "policy_id": 0.0,
+      "lob": 0.0,
+      "country": 0.012,
+      "loss_date": 0.0,
+      "reported_date": 0.0,
+      "incurred_loss": 0.024,
+      "paid_loss": 0.0,
+      "status": 0.0,
+      "currency": 0.0,
+      "adjuster_id": 0.0
+    },
+    "overall_completeness": 0.9967,
+    "schema_missing_cols": [],
+    "schema_extra_cols": [
+      "adjuster_id",
+      "loss_date",
+      "currency",
+      "reported_date"
+    ],
+    "schema_coverage": 1.0
+  },
+  "policies": {
+    "asset_name": "policies",
+    "version": "v2.0",
+    "owner": "Underwriting",
+    "source_system": "SAP Treaty Management",
+    "refresh_frequency": "Weekly @ Monday 08:00 UTC",
+    "tags": [
+      "treaty",
+      "core-financials"
+    ],
+    "row_count": 800,
+    "col_count": 10,
+    "columns_actual": [
+      "policy_id",
+      "cedant_name",
+      "treaty_type",
+      "inception_date",
+      "expiry_date",
+      "premium_usd",
+      "retention_pct",
+      "max_liability_usd",
+      "lob",
+      "status"
+    ],
+    "columns_expected": [
+      "policy_id",
+      "cedant_name",
+      "treaty_type",
+      "premium_usd",
+      "retention_pct",
+      "max_liability_usd"
+    ],
+    "dtypes": {
+      "policy_id": "str",
+      "cedant_name": "str",
+      "treaty_type": "str",
+      "inception_date": "datetime64[us]",
+      "expiry_date": "datetime64[us]",
+      "premium_usd": "float64",
+      "retention_pct": "float64",
+      "max_liability_usd": "float64",
+      "lob": "str",
+      "status": "str"
+    },
+    "memory_mb": 0.26,
+    "registered_at": "2026-04-09T13:17:34.785962",
+    "null_rates": {
+      "policy_id": 0.0,
+      "cedant_name": 0.0,
+      "treaty_type": 0.0,
+      "inception_date": 0.0,
+      "expiry_date": 0.0,
+      "premium_usd": 0.0,
+      "retention_pct": 0.0,
+      "max_liability_usd": 0.0,
+      "lob": 0.0,
+      "status": 0.0
+    },
+    "overall_completeness": 1.0,
+    "schema_missing_cols": [],
+    "schema_extra_cols": [
+      "inception_date",
+      "lob",
+      "expiry_date",
+      "status"
+    ],
+    "schema_coverage": 1.0
+  },
+  "exposure": {
+    "asset_name": "exposure",
+    "version": "v1.0",
+    "owner": "Risk Analytics",
+    "source_system": "Multiple (Guidewire / SAP / Manual)",
+    "refresh_frequency": "Monthly @ 1st business day",
+    "tags": [
+      "risk",
+      "aggregate",
+      "reporting"
+    ],
+    "row_count": 1200,
+    "col_count": 7,
+    "columns_actual": [
+      "exposure_id",
+      "region",
+      "lob",
+      "exposure_value",
+      "as_of_date",
+      "currency",
+      "source_system"
+    ],
+    "columns_expected": [
+      "exposure_id",
+      "region",
+      "exposure_value",
+      "currency"
+    ],
+    "dtypes": {
+      "exposure_id": "str",
+      "region": "str",
+      "lob": "str",
+      "exposure_value": "float64",
+      "as_of_date": "datetime64[us]",
+      "currency": "str",
+      "source_system": "str"
+    },
+    "memory_mb": 0.35,
+    "registered_at": "2026-04-09T13:17:34.789683",
+    "null_rates": {
+      "exposure_id": 0.0,
+      "region": 0.0,
+      "lob": 0.0,
+      "exposure_value": 0.0,
+      "as_of_date": 0.0,
+      "currency": 0.0,
+      "source_system": 0.0
+    },
+    "overall_completeness": 1.0,
+    "schema_missing_cols": [],
+    "schema_extra_cols": [
+      "lob",
+      "as_of_date",
+      "source_system"
+    ],
+    "schema_coverage": 1.0
+  }
+}

@@ -1,0 +1,230 @@
+{
+  "othliab": {
+    "asset_name": "othliab",
+    "version": "v1.0",
+    "owner": "Actuarial / Reserve Analytics",
+    "source_system": "NAIC Schedule P \u2014 via Casualty Actuarial Society",
+    "refresh_frequency": "Annual (regulatory filing cycle)",
+    "sla_completeness": 0.98,
+    "columns": [
+      {
+        "name": "GRCODE",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": 1,
+        "allowed_values": null,
+        "description": "NAIC company code \u2014 unique insurer/group identifier"
+      },
+      {
+        "name": "GRNAME",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": "NAIC company name"
+      },
+      {
+        "name": "AccidentYear",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007
+        ],
+        "description": "Year in which the loss event occurred"
+      },
+      {
+        "name": "DevelopmentLag",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": 1,
+        "allowed_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "description": "Years elapsed since accident year (1=first evaluation)"
+      },
+      {
+        "name": "IncurredLosses",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Incurred net losses and allocated expenses ($000s)"
+      },
+      {
+        "name": "CumPaidLoss",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Cumulative paid losses and ALAE ($000s)"
+      },
+      {
+        "name": "BulkLoss",
+        "dtype": "float64",
+        "nullable": true,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Bulk and IBNR reserves ($000s)"
+      },
+      {
+        "name": "EarnedPremNet",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Net earned premium at accident year ($000s)"
+      },
+      {
+        "name": "Single",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          0,
+          1
+        ],
+        "description": "1 = single entity, 0 = insurer group"
+      }
+    ],
+    "tags": [
+      "loss-triangle",
+      "reserving",
+      "regulated",
+      "open-data"
+    ],
+    "data_citation": "CAS Reserve Research Working Group. Loss Reserving Data Pulled from NAIC Schedule P. Data compiled by S&P Global Market Intelligence. Updated December 2025. https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p"
+  },
+  "comauto": {
+    "asset_name": "comauto",
+    "version": "v1.0",
+    "owner": "Actuarial / Reserve Analytics",
+    "source_system": "NAIC Schedule P \u2014 via Casualty Actuarial Society",
+    "refresh_frequency": "Annual (regulatory filing cycle)",
+    "sla_completeness": 0.98,
+    "columns": [
+      {
+        "name": "GRCODE",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": 1,
+        "allowed_values": null,
+        "description": "NAIC company code \u2014 unique insurer/group identifier"
+      },
+      {
+        "name": "GRNAME",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": "NAIC company name"
+      },
+      {
+        "name": "AccidentYear",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007
+        ],
+        "description": "Year in which the loss event occurred"
+      },
+      {
+        "name": "DevelopmentLag",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": 1,
+        "allowed_values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ],
+        "description": "Years elapsed since accident year (1=first evaluation)"
+      },
+      {
+        "name": "IncurredLosses",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Incurred net losses and allocated expenses ($000s)"
+      },
+      {
+        "name": "CumPaidLoss",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Cumulative paid losses and ALAE ($000s)"
+      },
+      {
+        "name": "BulkLoss",
+        "dtype": "float64",
+        "nullable": true,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Bulk and IBNR reserves ($000s)"
+      },
+      {
+        "name": "EarnedPremNet",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": "Net earned premium at accident year ($000s)"
+      },
+      {
+        "name": "Single",
+        "dtype": "int64",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          0,
+          1
+        ],
+        "description": "1 = single entity, 0 = insurer group"
+      }
+    ],
+    "tags": [
+      "loss-triangle",
+      "reserving",
+      "regulated",
+      "open-data"
+    ],
+    "data_citation": "CAS Reserve Research Working Group. Loss Reserving Data Pulled from NAIC Schedule P. Data compiled by S&P Global Market Intelligence. Updated December 2025. https://www.casact.org/publications-research/research/research-resources/loss-reserving-data-pulled-naic-schedule-p"
+  }
+}

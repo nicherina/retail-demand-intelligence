@@ -1,0 +1,207 @@
+{
+  "claims": {
+    "asset_name": "claims",
+    "version": "v1.2",
+    "owner": "Claims Operations",
+    "source_system": "Guidewire ClaimCenter",
+    "refresh_frequency": "Daily @ 06:00 UTC",
+    "sla_completeness": 0.97,
+    "columns": [
+      {
+        "name": "claim_id",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "policy_id",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "lob",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          "Property",
+          "Liability",
+          "Marine",
+          "Life",
+          "Casualty"
+        ],
+        "description": ""
+      },
+      {
+        "name": "country",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "incurred_loss",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "paid_loss",
+        "dtype": "float64",
+        "nullable": true,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "status",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          "Open",
+          "Closed",
+          "Reopened",
+          "Disputed"
+        ],
+        "description": ""
+      }
+    ],
+    "tags": [
+      "regulated",
+      "PII",
+      "core-financials"
+    ]
+  },
+  "policies": {
+    "asset_name": "policies",
+    "version": "v2.0",
+    "owner": "Underwriting",
+    "source_system": "SAP Treaty Management",
+    "refresh_frequency": "Weekly @ Monday 08:00 UTC",
+    "sla_completeness": 0.99,
+    "columns": [
+      {
+        "name": "policy_id",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "cedant_name",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "treaty_type",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          "Quota Share",
+          "Excess of Loss",
+          "Stop Loss"
+        ],
+        "description": ""
+      },
+      {
+        "name": "premium_usd",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "retention_pct",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "max_liability_usd",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      }
+    ],
+    "tags": [
+      "treaty",
+      "core-financials"
+    ]
+  },
+  "exposure": {
+    "asset_name": "exposure",
+    "version": "v1.0",
+    "owner": "Risk Analytics",
+    "source_system": "Multiple (Guidewire / SAP / Manual)",
+    "refresh_frequency": "Monthly @ 1st business day",
+    "sla_completeness": 0.95,
+    "columns": [
+      {
+        "name": "exposure_id",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "region",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          "DACH",
+          "Benelux",
+          "UK/IE",
+          "South Europe",
+          "Nordics"
+        ],
+        "description": ""
+      },
+      {
+        "name": "exposure_value",
+        "dtype": "float64",
+        "nullable": false,
+        "min_value": 0.0,
+        "allowed_values": null,
+        "description": ""
+      },
+      {
+        "name": "currency",
+        "dtype": "string",
+        "nullable": false,
+        "min_value": null,
+        "allowed_values": [
+          "EUR",
+          "CHF",
+          "GBP"
+        ],
+        "description": ""
+      }
+    ],
+    "tags": [
+      "risk",
+      "aggregate",
+      "reporting"
+    ]
+  }
+}

@@ -184,8 +184,8 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
         <span class="source-pill real">18 validation rules</span>
       </div>
       <div class="source-item">
-        <span class="source-label">NB06 · RAG Pipeline</span>
-        <span class="source-pill real">FAISS · LangChain</span>
+        <span class="source-label">NB06 · NLP Text Classification</span>
+        <span class="source-pill real">F1 0.73 · 9 classes</span>
       </div>
       <div class="source-item">
         <span class="source-label"><a href="https://retail-demand-intelligence-hpd9ea72kk2wcpjadhm8yd.streamlit.app/" target="_blank" style="color:#6da0f5; text-decoration:none;">Interactive app (Streamlit) ↗</a></span>
@@ -225,7 +225,7 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
     <div>
       <div class="s-label">Jupyter Notebooks · Python</div>
       <h2 class="s-title">6 Notebooks.<br/>One Complete Case Study.</h2>
-      <p class="s-desc">End-to-end data product delivery — from raw, messy data through quality assessment, forecasting, geospatial analysis, BI specification, data cataloging & contract validation, and a production RAG pipeline.</p>
+      <p class="s-desc">End-to-end data product delivery — from raw, messy data through quality assessment, forecasting, geospatial analysis, BI specification, data cataloging & contract validation, and NLP text classification for financial messages.</p>
     </div>
   </div>
 
@@ -286,15 +286,15 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
       </div>
     </div>
 
-    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--amber);">
-      <div class="nb-num">NOTEBOOK 06 · GEN AI / RAG</div>
-      <h3>Retrieval-Augmented Generation (RAG) Pipeline</h3>
-      <p>Production-ready RAG pipeline applied to financial risk documents — querying credit risk policies, data contracts, and CAS/NAIC insurance reports via natural language. Ingests 5 domain documents, embeds them with sentence-transformers (all-MiniLM-L6-v2), indexes in FAISS, and retrieves context for grounded LLM answers. Includes hallucination detection (number grounding + hedge-word flags), Precision@K retrieval evaluation across 8 financial queries, and a latency benchmark achieving sub-100ms retrieval on CPU.</p>
+    <div class="nb-card" style="grid-column: span 2; border-top: 3px solid var(--one);">
+      <div class="nb-num">NOTEBOOK 06 · NLP / MACHINE LEARNING</div>
+      <h3>NLP Text Classification — Financial Messages & Documents</h3>
+      <p>End-to-end text classification pipeline applied to two financial domains: governance documents (risk policy, data contracts, model documentation, insurance risk, KPI definitions) and SWIFT-style financial messages (payment instructions, compliance alerts, securities settlement, treasury & FX). Implements and compares TF-IDF + Logistic Regression (interpretable baseline) against sentence-transformer embeddings (all-MiniLM-L6-v2, 384-dim) with three classifiers. Best model: Embeddings + Linear SVM achieving F1-macro 0.73. Includes feature importance explainability, PCA + t-SNE embedding space visualisation, and misclassification analysis — all critical for regulated financial environments.</p>
       <div class="nb-tags">
-        <span class="tag">RAG</span><span class="tag">FAISS</span>
-        <span class="tag">LangChain</span><span class="tag">sentence-transformers</span>
-        <span class="tag">Hallucination Detection</span><span class="tag">Vector Search</span>
-        <span class="tag">LLM Integration</span><span class="tag">Financial NLP</span>
+        <span class="tag">NLP</span><span class="tag">TF-IDF</span>
+        <span class="tag">sentence-transformers</span><span class="tag">Logistic Regression</span>
+        <span class="tag">Linear SVM</span><span class="tag">SWIFT Messages</span>
+        <span class="tag">Financial Text</span><span class="tag">Scikit-learn</span>
       </div>
     </div>
   </div>
@@ -426,6 +426,7 @@ hr.div { border:none; border-top:1px solid var(--border); margin:0; }
       <div class="skill-row"><div class="skill-top"><span>SQL</span><span class="skill-pct">85%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.85"></div></div></div>
       <div class="skill-row"><div class="skill-top"><span>Excel / VBA</span><span class="skill-pct">88%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.88"></div></div></div>
       <div class="skill-row"><div class="skill-top"><span>Machine Learning (RF, GBM, clustering)</span><span class="skill-pct">82%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.82"></div></div></div>
+      <div class="skill-row"><div class="skill-top"><span>NLP (TF-IDF, sentence-transformers, SVM)</span><span class="skill-pct">75%</span></div><div class="s-track"><div class="s-fill" style="background:var(--one)" data-w="0.75"></div></div></div>
     </div>
     <div class="skill-card">
       <div class="skill-label" style="color:var(--green)">BI & Visualisation</div>

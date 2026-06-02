@@ -1,0 +1,30 @@
+{
+  "othliab": {
+    "lob": "Other Liability",
+    "factors": {
+      "Lag 1\u2192Lag 2": 0.9758,
+      "Lag 2\u2192Lag 3": 0.9902,
+      "Lag 3\u2192Lag 4": 0.986,
+      "Lag 4\u2192Lag 5": 0.9861,
+      "Lag 5\u2192Lag 6": 0.9975,
+      "Lag 6\u2192Lag 7": 0.9914,
+      "Lag 7\u2192Lag 8": 0.996,
+      "Lag 8\u2192Lag 9": 1.0024,
+      "Lag 9\u2192Lag 10": 0.9974
+    }
+  },
+  "comauto": {
+    "lob": "Commercial Auto",
+    "factors": {
+      "Lag 1\u2192Lag 2": 1.002,
+      "Lag 2\u2192Lag 3": 1.0155,
+      "Lag 3\u2192Lag 4": 1.0045,
+      "Lag 4\u2192Lag 5": 0.9982,
+      "Lag 5\u2192Lag 6": 0.9979,
+      "Lag 6\u2192Lag 7": 0.9978,
+      "Lag 7\u2192Lag 8": 0.9992,
+      "Lag 8\u2192Lag 9": 0.9992,
+      "Lag 9\u2192Lag 10": 0.9995
+    }
+  }
+}

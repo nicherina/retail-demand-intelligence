@@ -11,11 +11,13 @@
 ## About This Portfolio
 
 This project demonstrates end-to-end data analytics consulting skills across:
-**trusted data products**, **data quality**, and **business value from fragmented enterprise data**.
+**trusted data products**, **data quality**, **financial analytics**, and **NLP** —
+delivering business value from fragmented enterprise data.
 
-The case study simulates a retail analytics engagement — demand forecasting, geospatial
-demand signals, and BI dashboards across 6 European markets — delivered as a
-**complete data product**: from messy raw data to client-ready insight.
+The portfolio covers a retail analytics engagement (demand forecasting, geospatial demand signals,
+BI dashboards across 6 European markets) and extends into financial analytics (insurance data
+governance, NLP text classification for financial messages) — delivered as **complete data products**:
+from messy raw data to client-ready insight.
 
 ---
 
@@ -29,11 +31,12 @@ onedata_portfolio/
 │   ├── 02_demand_forecasting_data_product.ipynb
 │   ├── 03_geospatial_demand_signals.ipynb
 │   ├── 04_bi_dashboard_spec.ipynb
-│   ├── 05_data_cataloging_contracts.ipynb
-│   └── NB07_RAG_Pipeline.ipynb
+│   ├── 05_data_cataloging_contracts_v2.ipynb
+│   └── 06_NLP_Text_Classification.ipynb
 │
 ├── streamlit_app/
 │   ├── app.py
+│   ├── Dockerfile
 │   └── README.md
 │
 ├── data/
@@ -45,15 +48,10 @@ onedata_portfolio/
 │   ├── forecast_results.csv
 │   ├── geospatial_clusters.png
 │   ├── management_dashboard.png
-│   ├── executive_summary.md
 │   ├── data_catalog_registry.json
 │   ├── data_contracts.json
 │   └── validation_report.csv
 │
-├── docs/
-│   └── data_product_spec.md
-│
-├── data_catalog_pipeline.py
 ├── portfolio_onedata.html
 ├── requirements.txt
 └── README.md
@@ -69,14 +67,16 @@ onedata_portfolio/
 | 02 | Demand Forecasting Data Product | End-to-end data product | Random Forest, GBM, Ridge Regression |
 | 03 | Geospatial Demand Signals | Spatial analytics | K-Means clustering, silhouette score |
 | 04 | BI Dashboard Specification | Client communication | KPI framework, Power BI spec |
-| 05 | Data Cataloging & Contracts | Data governance | Contract validation, metadata registry, lineage |
-| 07 | RAG Pipeline | LLM / GenAI, retrieval | FAISS, sentence-transformers, LangChain, hallucination detection |
+| 05 | Data Cataloging & Contracts | Data governance | Contract validation, metadata registry, lineage, CAS/NAIC data |
+| 06 | NLP Text Classification | NLP, machine learning | TF-IDF, sentence-transformers, Logistic Regression, SVM |
 
 ---
 
 ## Notebook 05 — Data Cataloging & Data Contracts
 
-A production-grade Data Cataloging and Contract Validation framework applied to simulated reinsurance data — relevant to roles involving Palantir Foundry, dbt, or enterprise data governance platforms.
+A production-grade Data Cataloging and Contract Validation framework applied to real CAS/NAIC
+Schedule P insurance data — relevant to roles involving Palantir Foundry, dbt, or enterprise
+data governance platforms.
 
 | Component | What It Does |
 |---|---|
@@ -84,34 +84,74 @@ A production-grade Data Cataloging and Contract Validation framework applied to 
 | **Data Catalog** | Automated metadata extraction + asset registry |
 | **Contract Validator** | Rule engine: null checks, min value constraints, enum validation |
 | **Pipeline Gate** | PASS / BLOCK decision with full audit trail |
+| **Chain-Ladder Analysis** | Actuarial loss development factors across lines of business |
 | **Dashboard** | 5-panel visual: null heatmap, lineage map, validation breakdown |
 | **Export Artifacts** | JSON registry, JSON contracts, CSV audit report |
 
-### Data Assets Simulated
+### Data Source
 
-| Asset | Rows | Source System | Owner |
-|---|---|---|---|
-| `claims` | 5,000 | Guidewire ClaimCenter | Claims Operations |
-| `policies` | 800 | SAP Treaty Management | Underwriting |
-| `exposure` | 1,200 | Multiple / Manual | Risk Analytics |
+Real **CAS/NAIC Schedule P** loss reserve database — 36,660 records across 10 lines of business
+from 393 US property & casualty insurance companies (1988–1997).
 
 ### Run Notebook 05
 
 ```bash
 # Jupyter
-jupyter notebook notebooks/05_data_cataloging_contracts.ipynb
+jupyter notebook notebooks/05_data_cataloging_contracts_v2.ipynb
 
 # Standalone script
 python data_catalog_pipeline.py
 ```
 
-Outputs written to `outputs/`: `data_catalog_registry.json`, `data_contracts.json`, `validation_report.csv`, `catalog_dashboard.png`
+Outputs written to `outputs/`: `data_catalog_registry.json`, `data_contracts.json`, `validation_report.csv`
+
+---
+
+## Notebook 06 — NLP Text Classification
+
+A financial text classification pipeline applied to two domains:
+**financial risk & governance documents** (5 categories) and **SWIFT-style financial messages**
+(4 message types) — demonstrating NLP capabilities relevant to institutions like SWIFT, banks,
+and insurance firms.
+
+| Component | What It Does |
+|---|---|
+| **TF-IDF Baseline** | Logistic Regression on TF-IDF features with bigrams — fast and interpretable |
+| **Sentence Embeddings** | `all-MiniLM-L6-v2` (384-dim) semantic features, same model as RAG use cases |
+| **Multi-Classifier Eval** | Logistic Regression, Linear SVM, Random Forest compared head-to-head |
+| **Cross-Validation** | Stratified 5-fold F1-macro for reliable generalisation estimates |
+| **Feature Importance** | Top TF-IDF terms per class — explainability for regulated environments |
+| **Embedding Space Viz** | PCA + t-SNE cluster analysis of financial text categories |
+| **Misclassification Analysis** | Error pattern breakdown with examples |
+| **Inference Function** | `classify_text()` ready for production use |
+
+### Categories
+
+**Financial Documents:** `risk_policy`, `data_governance`, `model_documentation`, `insurance_risk`, `kpi_definitions`
+
+**SWIFT-style Messages:** `payment_instruction`, `compliance_alert`, `securities_settlement`, `treasury_fx`
+
+### Results
+
+| Model | Test F1-macro |
+|---|---|
+| TF-IDF + Logistic Regression | 0.58 |
+| Embeddings + Logistic Regression | 0.66 |
+| Embeddings + Linear SVM | **0.73** |
+| Embeddings + Random Forest | 0.56 |
+
+### Run Notebook 06
+
+```bash
+jupyter notebook notebooks/06_NLP_Text_Classification.ipynb
+```
 
 ---
 
 ## Streamlit App
 
-An interactive web app wrapping the data quality pipeline — upload any CSV, run automated profiling, trigger the pipeline gate, and execute remediation.
+An interactive web app wrapping the data quality pipeline — upload any CSV, run automated
+profiling, trigger the pipeline gate, and execute remediation.
 
 ```bash
 cd streamlit_app
@@ -121,27 +161,14 @@ streamlit run app.py
 
 See [`streamlit_app/README.md`](streamlit_app/README.md) for full setup and deployment instructions.
 
----
-
-## Notebook 07 — RAG Pipeline (Retrieval-Augmented Generation)
-
-A production-ready RAG pipeline applied to financial risk documents — querying credit risk policies, data contracts, and insurance reports via natural language.
-
-| Component | What It Does |
-|---|---|
-| **Document Ingestion** | 5 financial docs chunked with overlap using RecursiveCharacterTextSplitter |
-| **Vector Embeddings** | all-MiniLM-L6-v2 (384-dim, normalised) via sentence-transformers |
-| **FAISS Vector Store** | Cosine similarity search across embedded document chunks |
-| **Prompt Template** | Grounding guardrails — no hallucination, source citation required |
-| **Hallucination Detector** | Number grounding + hedge word detection on LLM outputs |
-| **Retrieval Evaluation** | Precision@K benchmark across 8 financial domain queries |
-| **Latency Benchmark** | Sub-100ms retrieval on CPU |
-
-### Run Notebook 07
+## 🐳 Run with Docker
 
 ```bash
-jupyter notebook notebooks/NB07_RAG_Pipeline.ipynb
+docker pull ghcr.io/nicherina/onedata-streamlit:latest
+docker run -p 8501:8501 ghcr.io/nicherina/onedata-streamlit:latest
 ```
+
+Then open: http://localhost:8501
 
 ---
 
@@ -151,7 +178,8 @@ jupyter notebook notebooks/NB07_RAG_Pipeline.ipynb
 - **Data Quality** — automated profiling, completeness scoring, anomaly flagging
 - **Data Contracts** — schema definitions, SLA expectations, ownership
 - **Data Cataloging** — metadata registry, lineage mapping, asset discovery
-- **RAG / GenAI** — retrieval-augmented generation, vector search, hallucination detection
+- **Actuarial Analytics** — chain-ladder development factors, reserve adequacy (CAS/NAIC)
+- **NLP / Text Classification** — TF-IDF, semantic embeddings, financial message routing
 - **Business Relevance** — every output tied to a concrete business decision
 - **Stakeholder communication** — executive summaries alongside code
 
@@ -159,12 +187,12 @@ jupyter notebook notebooks/NB07_RAG_Pipeline.ipynb
 
 ## Data
 
-All datasets are **fully synthetic** — generated using NumPy random distributions seeded for reproducibility (`seed=42`). No real client or proprietary data is used.
-
 | File | What it simulates |
 |---|---|
 | `retail_stores_simulated.csv` | 1,500 retail stores across DE, AT, PL, CZ, SK, HU, SI |
 | `raw_sales_data_with_issues.csv` | Weekly sales with intentional data quality issues for profiling demo |
+
+CAS/NAIC Schedule P data used in NB05 is publicly available from the Casualty Actuarial Society.
 
 ---
 
