@@ -8,6 +8,15 @@ __pycache__/
 .venv/
 *.egg-info/
 
+# MLOps
+mlruns/
+mlartifacts/
+mlflow.db
+monitoring_baseline/
+outputs/monitoring/training_reference.csv
+.pytest_cache/
+.ruff_cache/
+
 # Jupyter
 .ipynb_checkpoints/
 

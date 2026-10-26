@@ -39,6 +39,14 @@ onedata_portfolio/
 │   ├── Dockerfile
 │   └── README.md
 │
+├── src/retail_dti/          # NEW - MLOps layer (see docs/mlops.md)
+├── training/                # NEW - MLflow-tracked training pipeline + model registry
+├── api/                     # NEW - FastAPI serving /predict, /predict/batch, /health
+├── monitoring/              # NEW - PSI drift monitoring vs. training baseline
+├── tests/                   # NEW - 18 tests: feature contract, model, API, drift
+├── api.Dockerfile           # NEW - API container
+└── .github/workflows/       # NEW - CI: lint + tests + docker build
+│
 ├── data/
 │   ├── retail_stores_simulated.csv
 │   └── raw_sales_data_with_issues.csv
@@ -182,6 +190,26 @@ Then open: http://localhost:8501
 - **NLP / Text Classification** — TF-IDF, semantic embeddings, financial message routing
 - **Business Relevance** — every output tied to a concrete business decision
 - **Stakeholder communication** — executive summaries alongside code
+
+---
+
+## MLOps Layer (NEW)
+
+The demand-forecasting model from notebook 02, taken from *trained-in-a-notebook* to
+*served and governed as a system*:
+
+- **Experiment tracking + model registry** — `training/train.py` logs params/metrics/encoders
+  to MLflow (SQLite store) and registers `retail_demand_forecaster`
+- **Model-as-API** — FastAPI `/predict` and `/predict/batch` enforce the exact 15-feature
+  training contract (Pydantic-validated), categoricals encoded with the training encoders
+- **Containerization** — `api.Dockerfile` (python-slim)
+- **CI/CD** — GitHub Actions: ruff lint → pytest (18 tests) → docker build on every push
+- **Monitoring** — PSI drift reports vs. the training reference distribution
+  (`monitoring/drift.py`), with explicit handling for binary/categorical features
+- **Reproducibility** — seeded generation, pinned feature contract in
+  `src/retail_dti/` shared by notebook, pipeline, and API
+
+Full details and a verified-run log: **[docs/mlops.md](docs/mlops.md)**
 
 ---
 

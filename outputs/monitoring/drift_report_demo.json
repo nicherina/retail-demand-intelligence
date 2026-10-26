@@ -1,0 +1,26 @@
+{
+  "overall": "action_needed",
+  "features": [
+    {
+      "feature": "units_sold",
+      "psi": 0.1333,
+      "severity": "moderate"
+    },
+    {
+      "feature": "promo_flag",
+      "psi": 0.3674,
+      "severity": "action_needed"
+    },
+    {
+      "feature": "temp_idx",
+      "psi": 0.0,
+      "severity": "stable"
+    },
+    {
+      "feature": "month",
+      "psi": 0.0,
+      "severity": "stable"
+    }
+  ],
+  "note": "simulated promo + demand shift"
+}
